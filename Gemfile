@@ -75,3 +75,8 @@ gem 'html2slim'
 
 gem 'kaminari'
 
+gem 'jquery-rails'
+
+gem 'materialize-sass'
+
+gem 'material_icons'

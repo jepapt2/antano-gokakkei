@@ -1,0 +1,15 @@
+
+.container
+  h1 Posts#new
+  div#form
+    input type="range" v-model="value[0]" min="0" max="6" value="1" step="1"
+    input type="text" v-model="label[0]"
+    input type="range" v-model="value[1]" min="0" max="6" value="1" step="1"
+    input type="text" v-model="label[1]"
+    h2  v-text="value[0]"
+    h2  v-text="label[0]"
+  div#hoge
+    h2 v-text="value[1]"
+    h2  v-text="label[1]"
+  div#app
+= javascript_pack_tag 'new'

@@ -41,6 +41,9 @@ Vue.component('chart', {
                         return  value;
                     }
                 }
+            },
+            tooltips:{
+                enabled: false
             }
         }
     };
