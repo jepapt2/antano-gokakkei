@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from "./components/new.vue";
+import M from 'materialize-css';
 import VueDataScooper from "vue-data-scooper";
 Vue.use(VueDataScooper);
 
@@ -14,6 +15,10 @@ var vm = new Vue({
     // },
     value:['1','1','1','1','1'],
     label:['','','','','']
+  },
+  mounted(){
+    var elems  = document.querySelectorAll("input[type=range]");
+    M.Range.init(elems);
   }
 });
 
@@ -28,10 +33,7 @@ var vm1 = new Vue({
 
 new Vue({
   el: "#app",
-  data:{
-    value: vm.value,
-    label: ['','','','','']
-  },
+  data:vm,
   components: { App },
   template: '<App :value="value" :label="label"></App>'
 });

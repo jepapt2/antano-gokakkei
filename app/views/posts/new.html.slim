@@ -9,7 +9,8 @@
           = f.text_field :label1, "v-model" => "label[0]"
       tr
         td
-          = f.range_field :value1, min:0, max:6, "v-model" => "value[0]"
+          p class="range-field"
+            = f.range_field :value1, min:0, max:6, "v-model" => "value[0]"
       tr
         th rowspan="2" 
           ラベル2
