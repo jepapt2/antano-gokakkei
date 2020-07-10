@@ -1,38 +1,42 @@
 import Vue from 'vue';
-import { Radar, mixins } from 'vue-chartjs';
-const { reactiveProp } = mixins;
 import App from "./components/new.vue";
+import VueDataScooper from "vue-data-scooper";
+Vue.use(VueDataScooper);
 
 Vue.config.productionTip = false;
 
+document.addEventListener("DOMContentLoaded", () => {
 var vm = new Vue({
   el: "#form",
   data:{
+    // post:{
+    //   label1:''
+    // },
     value:['1','1','1','1','1'],
     label:['','','','','']
   }
 });
 
-new Vue({
+
+
+var vm1 = new Vue({
   el: "#hoge",
-  data:{
-    value: vm.value,
-    label: vm.label
-  }
+  data:vm,
 });
+
+
 
 new Vue({
   el: "#app",
   data:{
     value: vm.value,
-    label: vm.label
+    label: ['','','','','']
   },
   components: { App },
   template: '<App :value="value" :label="label"></App>'
 });
 
-
-
+});
 
 
 

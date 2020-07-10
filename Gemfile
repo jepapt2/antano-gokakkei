@@ -77,6 +77,8 @@ gem 'kaminari'
 
 gem 'jquery-rails'
 
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 1.0.0'
 
 gem 'material_icons'
+
+gem 'jquery-turbolinks'

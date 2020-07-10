@@ -1,15 +1,54 @@
-
 .container
-  h1 Posts#new
-  div#form
-    input type="range" v-model="value[0]" min="0" max="6" value="1" step="1"
-    input type="text" v-model="label[0]"
-    input type="range" v-model="value[1]" min="0" max="6" value="1" step="1"
-    input type="text" v-model="label[1]"
-    h2  v-text="value[0]"
-    h2  v-text="label[0]"
+  div#app
+  = form_with  model: @post, :url => {:action => :create}, id: 'form', local: true do |f|
+    table
+      tr
+        th rowspan="2" 
+          h3  ラベル1
+        td  
+          = f.text_field :label1, "v-model" => "label[0]"
+      tr
+        td
+          = f.range_field :value1, min:0, max:6, "v-model" => "value[0]"
+      tr
+        th rowspan="2" 
+          ラベル2
+        td  
+          = f.text_field :label2, "v-model" => "label[1]"
+      tr
+        td
+            = f.range_field :value2, min:0, max:6, "v-model" => "value[1]"
+      tr
+        th rowspan="2" 
+          ラベル3
+        td  
+          = f.text_field :label3, "v-model" => "label[2]"
+      tr
+        td
+            = f.range_field :value3, min:0, max:6, "v-model" => "value[2]"
+      tr
+        th rowspan="2" 
+          ラベル4
+        td  
+          = f.text_field :label4, "v-model" => "label[3]"
+      tr
+        td
+            = f.range_field :value4, min:0, max:6, "v-model" => "value[3]"
+      tr
+        th rowspan="2" 
+          ラベル5
+        td  
+          = f.text_field :label5, "v-model" => "label[4]"
+      tr
+        td
+            = f.range_field :value5, min:0, max:6, "v-model" => "value[4]"
+          
+
+    h3 v-text="label[0]"
+    h3 v-text="value[0]"
   div#hoge
+    h2 v-text="label[1]"
     h2 v-text="value[1]"
     h2  v-text="label[1]"
-  div#app
+
 = javascript_pack_tag 'new'
