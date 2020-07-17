@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_175038) do
+ActiveRecord::Schema.define(version: 2020_07_17_150054) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(version: 2020_06_07_175038) do
     t.integer "value3"
     t.integer "value4"
     t.integer "value5"
-    t.boolean "color1"
-    t.boolean "color2"
-    t.boolean "color3"
-    t.boolean "color4"
-    t.boolean "color5"
     t.string "bgcolor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
