@@ -10,15 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
 var vm = new Vue({
   el: "#form",
   data:{
-    // post:{
-    //   label1:''
-    // },
     value:['1','1','1','1','1'],
     label:['','','','','']
   },
   mounted(){
     var elems  = document.querySelectorAll("input[type=range]");
     M.Range.init(elems);
+    var textNeedCount = document.querySelectorAll("input[type=text]");
+    M.CharacterCounter.init(textNeedCount);
+    var textareaNeedCount = document.querySelectorAll("textarea");
+    M.CharacterCounter.init(textareaNeedCount);
+    M.AutoInit();
   }
 });
 
@@ -35,7 +37,7 @@ new Vue({
   el: "#app",
   data:vm,
   components: { App },
-  template: '<App :value="value" :label="label"></App>'
+  template: '<App :title="title" :value="value" :label="label" :color="color"></App>'
 });
 
 });
