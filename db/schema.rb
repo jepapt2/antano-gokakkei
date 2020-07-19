@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_150823) do
+ActiveRecord::Schema.define(version: 2020_07_19_173658) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2020_07_17_150823) do
     t.string "bgcolor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "public_uid"
+    t.index ["public_uid"], name: "index_posts_on_public_uid", unique: true
   end
 
   create_table "taggings", force: :cascade do |t|

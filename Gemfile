@@ -80,3 +80,5 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
 gem 'acts-as-taggable-on', '~> 6.0'
+
+gem 'public_uid'

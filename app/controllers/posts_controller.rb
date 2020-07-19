@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def show
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find_by(public_uid: params[:id])
   end
 
   def new
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to controller: 'posts', action: 'show', id: @post.id
+      redirect_to controller: 'posts', action: 'show', id: @post.public_uid
     else
       render 'posts/new'
     end
