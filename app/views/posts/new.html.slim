@@ -1,14 +1,14 @@
-.container
+.center-align
   .row
     .col.s12.m8.offset-m2
       div#app
       = form_with  model: @post, :url => {:action => :create}, id: 'form', local: true do |f|
-        h4.center-align タイトル
+        h4 タイトル
         .input-field
           = f.label :title
           = f.text_field :title, "data-length" =>"15", "v-model" => "title"
         / ラベル
-        h4.center-align ラベル
+        h4 ラベル
         .row
           .section
             .col.s12.m6
@@ -59,8 +59,8 @@
               p class="range-field"
                 = f.label :value5, "5"
                 = f.range_field :value5, min:0, max:6, "v-model" => "value[4]"
-          h4.center-align 色
-          .center-align
+          h4 色
+          div
             = f.label :bgcolor_red
               = f.radio_button :bgcolor, :red, id:'post_bgcolor_red', :checked=>'checked', "v-model" => "color"
               span(style="font-size: 200%;") 赤
@@ -73,22 +73,23 @@
             = f.label :bgcolor_green
               = f.radio_button :bgcolor, :green, id:'post_bgcolor_green', "v-model" => "color"
               span(style="font-size: 200%; margin-left: 20px;") 緑
-          h5.center-align 名前(任意)
+          h5 名前
           .col.s12
             .input-field
-              = f.label :name, "1"
+              = f.label :name, "(任意)"
               = f.text_field :name, "data-length" =>"20"
-          h5.center-align 説明(任意)
+          h5 説明
           .col.s12
             .input-field
-              = f.label :name, "1"
-              = f.text_area :name, class: "materialize-textarea" , "data-length" =>"100"
-        h3 v-text="label[0]"
-        h3 v-text="value[0]"
-      div#hoge
-        h2 v-text="label[1]"
-        h2 v-text="value[1]"
-        h2  v-text="label[1]"
-        h2  v-text="color"
+              = f.label :overview, "(任意)"
+              = f.text_area :overview, class: "materialize-textarea" , "data-length" =>"100"
+          h5 タグ
+          .col.s12
+            .input-field 
+              =f.label :tag_list, "(任意)"
+              =f.text_area :tag_list, class: "materialize-textarea"
+          div
+            = f.submit '投稿', class: "btn-large"
+          
 
 = javascript_pack_tag 'new'

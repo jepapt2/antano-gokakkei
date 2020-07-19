@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def show
+    @post = Post.find_by_id(params[:id])
   end
 
   def new
@@ -7,6 +8,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to controller: 'posts', action: 'show', id: @post.id
+    else
+      render 'posts/new'
+    end
+  end
+  
+  private
+  def post_params
+    params.require(:post).permit(:title, :name, :overview, :label1, :label2, :label3, :label4, :label5, :value1, :value2, :value3, :value4, :value5, :bgcolor, :tag_list)
   end
 end
+

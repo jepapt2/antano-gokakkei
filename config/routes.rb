@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts/show'
-  get 'posts/new'
+  get 'post/:id', to: 'posts#show'
   post 'posts/create'
   root to: 'tops#index'
   get 'new', to: 'posts#new'
