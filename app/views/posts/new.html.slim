@@ -1,65 +1,72 @@
 .center-align
   .row
-    .col.s12.m8.offset-m2
-      div#app
-      = form_with  model: @post, :url => {:action => :create}, id: 'form', local: true do |f|
-        h4 タイトル
-        .input-field
-          = f.label :title
-          = f.text_field :title, "data-length" =>"20", "v-model" => "title"
-        / ラベル
-        h4 ラベル
-        .row
-          .section
-            .col.s12.m6
-              .input-field
-                = f.label :label1, "1"
-                = f.text_field :label1, "data-length" =>"10", "v-model" => "label[0]"
-            .col.s12.m6
-              p class="range-field"
-                = f.label :value1, "1"
-                = f.range_field :value1, min:0, max:6, "v-model" => "value[0]"
-          .divider.col.s12
-          .section
-            .col.s12.m6 
-              .input-field
-                = f.label :label2, "2"
-                = f.text_field :label2, "data-length" =>"10", "v-model" => "label[1]"
-            .col.s12.m6  
-              p class="range-field"
-                = f.label :value2, "2"
-                = f.range_field :value2, min:0, max:6, "v-model" => "value[1]"
-          .divider.col.s12
-          .section
-            .col.s12.m6 
-              .input-field
-                = f.label :label3, "3"
-                = f.text_field :label3, "data-length" =>"10", "v-model" => "label[2]"
-            .col.s12.m6  
-              p class="range-field"
-                = f.label :value3, "3"
-                = f.range_field :value3, min:0, max:6, "v-model" => "value[2]"
-          .divider.col.s12
-          .section
-            .col.s12.m6 
-              .input-field
-                = f.label :label4, "4"
-                = f.text_field :label4, "data-length" =>"10", "v-model" => "label[3]"
-            .col.s12.m6  
-              p class="range-field"
-                = f.label :value4, "4"
-                = f.range_field :value4, min:0, max:6, "v-model" => "value[3]"
-          .divider.col.s12
-          .section
-            .col.s12.m6 
-              .input-field
-                = f.label :label5, "5"
-                = f.text_field :label5, "data-length" =>"10", "v-model" => "label[4]"
-            .col.s12.m6  
-              p class="range-field"
-                = f.label :value5, "5"
-                = f.range_field :value5, min:0, max:6, "v-model" => "value[4]"
-          h4 色
+    .container
+      .col.s12.m8.offset-m2
+        .red.lighten-3
+          - if @post.errors.any?
+            ul
+              - @post.errors.full_messages.each do |message|
+                li
+                  b = message
+        div#app
+        = form_with  model: @post, :url => {:action => :create}, id: 'form', local: true do |f|
+          h4 タイトル
+          .input-field
+            = f.label :title
+            = f.text_field :title, "data-length" =>"20", "v-model" => "title"
+          / ラベル
+          h4 ラベル
+          .row
+            .section
+              .col.s12.m6
+                .input-field
+                  = f.label :label1, "1"
+                  = f.text_field :label1, "data-length" =>"10", "v-model" => "label[0]"
+              .col.s12.m6
+                p class="range-field"
+                  = f.label :value1, "1"
+                  = f.range_field :value1, min:0, max:6, "v-model" => "value[0]"
+            .divider.col.s12
+            .section
+              .col.s12.m6 
+                .input-field
+                  = f.label :label2, "2"
+                  = f.text_field :label2, "data-length" =>"10", "v-model" => "label[1]"
+              .col.s12.m6  
+                p class="range-field"
+                  = f.label :value2, "2"
+                  = f.range_field :value2, min:0, max:6, "v-model" => "value[1]"
+            .divider.col.s12
+            .section
+              .col.s12.m6 
+                .input-field
+                  = f.label :label3, "3"
+                  = f.text_field :label3, "data-length" =>"10", "v-model" => "label[2]"
+              .col.s12.m6  
+                p class="range-field"
+                  = f.label :value3, "3"
+                  = f.range_field :value3, min:0, max:6, "v-model" => "value[2]"
+            .divider.col.s12
+            .section
+              .col.s12.m6 
+                .input-field
+                  = f.label :label4, "4"
+                  = f.text_field :label4, "data-length" =>"10", "v-model" => "label[3]"
+              .col.s12.m6  
+                p class="range-field"
+                  = f.label :value4, "4"
+                  = f.range_field :value4, min:0, max:6, "v-model" => "value[3]"
+            .divider.col.s12
+            .section
+              .col.s12.m6 
+                .input-field
+                  = f.label :label5, "5"
+                  = f.text_field :label5, "data-length" =>"10", "v-model" => "label[4]"
+              .col.s12.m6  
+                p class="range-field"
+                  = f.label :value5, "5"
+                  = f.range_field :value5, min:0, max:6, "v-model" => "value[4]"
+          h4 グラフの色
           div
             = f.label :bgcolor_red
               = f.radio_button :bgcolor, :red, id:'post_bgcolor_red', :checked=>'checked', "v-model" => "color"
@@ -73,11 +80,11 @@
             = f.label :bgcolor_green
               = f.radio_button :bgcolor, :green, id:'post_bgcolor_green', "v-model" => "color"
               span(style="font-size: 200%; margin-left: 20px;") 緑
-          h5 名前
+          h5 投稿者名
           .col.s12
             .input-field
-              = f.label :name, "(任意)"
-              = f.text_field :name, "data-length" =>"20"
+               = f.label :name, "(任意)"
+               = f.text_field :name, "data-length" =>"20"
           h5 説明
           .col.s12
             .input-field
@@ -86,10 +93,10 @@
           h5 タグ
           .col.s12
             .input-field 
-              =f.label :tag_list, "(任意)"
-              =f.text_area :tag_list, class: "materialize-textarea"
+              = f.label :tag_list, "(任意)"
+              = f.text_area :tag_list, class: "materialize-textarea"
           div
             = f.submit '投稿', class: "btn-large"
-          
+            
 
 = javascript_pack_tag 'new'

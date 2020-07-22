@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        title: タイトル
+        name: 投稿者名
+        overview: 説明
+        label1: ラベル１ 
+        label2: ラベル２
+        label3: ラベル３
+        label4: ラベル４
+        label5: ラベル５
+      tag:
+        name: タグ
+        

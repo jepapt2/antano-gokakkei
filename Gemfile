@@ -67,6 +67,8 @@ group :development do
   gem 'foreman'
 end
 
+gem 'rails-i18n'
+
 gem 'chart-js-rails'
 
 gem 'slim-rails'
