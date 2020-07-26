@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find_by(public_uid: params[:id])
+    @tag = Post.tag_counts
   end
 
   def new
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to controller: 'posts', action: 'show', id: @post.public_uid
     else
-      render 'posts/new'
+      render 'new'
     end
   end
   

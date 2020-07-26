@@ -8,7 +8,7 @@
               - @post.errors.full_messages.each do |message|
                 li
                   b = message
-        div#app
+        #app
         = form_with  model: @post, :url => {:action => :create}, id: 'form', local: true do |f|
           h4 タイトル
           .input-field
@@ -16,14 +16,14 @@
             = f.text_field :title, "data-length" =>"20", "v-model" => "title"
           / ラベル
           h4 ラベル
-          .row
+          .row.left-align
             .section
               .col.s12.m6
                 .input-field
                   = f.label :label1, "1"
                   = f.text_field :label1, "data-length" =>"10", "v-model" => "label[0]"
               .col.s12.m6
-                p class="range-field"
+                p.left-align class="range-field"
                   = f.label :value1, "1"
                   = f.range_field :value1, min:0, max:6, "v-model" => "value[0]"
             .divider.col.s12

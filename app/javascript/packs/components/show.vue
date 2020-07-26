@@ -1,8 +1,6 @@
 <template>
   <div id="app"class='row'>
     <div class="col s12 m10 offset-m1">
-      <h2 v-if="title === ''" class="center-align grey-text">タイトル</h2>
-      <h2 v-else class="center-align">{{ title }}</h2>
       <RadarChart :chart-data="chartData" :options="options"></RadarChart>
     </div>
   </div>
@@ -15,12 +13,7 @@ export default {
   components: {
     RadarChart
   },
-  props:{
-    title: String,
-    value: Array,
-    label: Array,
-    color: String
-  },
+  props:['title','label','value','color'],
   data() {
     return {
       chartData: null,
@@ -30,28 +23,17 @@ export default {
       pbgColor:'RGB(46,106,177)'
     };
   },
-  watch: {
-    value: function(){
-      this.updateChartData();
-    },
-    label: function(){
-      this.updateChartData();
-    },
-    color: function(){
-      this.ColorSet();
-      this.updateColor();
-    }
-  },
   mounted() {
+    this.ColorSet();
     this.generateData();
   },
   methods: {
     generateData() {
       this.chartData = { 
-        labels: this.label,
+        labels: this.SetLabel(),
         datasets: [{
           pointHitRadius: 0.1 ,
-          data: ['1','1','1','1','1'],
+          data: this.SetValue(),
           backgroundColor: this.bgColor,
           borderColor: this.bdColor,
           borderWidth: 1,
@@ -60,7 +42,9 @@ export default {
       },
       this.options = {
         title: {
-          display: false,
+          display: true,
+          text: this.title,
+          fontSize: 50
         },
         scale:{
           pointLabels: {       
@@ -84,16 +68,7 @@ export default {
         tooltips:{
           enabled: false
         }
-      }
-    },
-    updateChartData() {
-      const newChartData = Object.assign({}, this.chartData);
-      newChartData.datasets[0].data[0] = this.value[0];
-      newChartData.datasets[0].data[1] = this.value[1];
-      newChartData.datasets[0].data[2] = this.value[2];
-      newChartData.datasets[0].data[3] = this.value[3];
-      newChartData.datasets[0].data[4] = this.value[4];
-      this.chartData = newChartData;
+      };
     },
     ColorSet(){
       if(this.color === 'red'){
@@ -114,20 +89,19 @@ export default {
         this.pbgColor = 'RGB(46,106,177)';
       }
     },
-    updateColor() {
-      const newChartData = Object.assign({}, this.chartData);
-      newChartData.datasets[0].backgroundColor = this.bgColor;
-      newChartData.datasets[0].borderColor = this.bdColor;
-      newChartData.datasets[0].pointBackgroundColor = this.pbgColor;
-      this.chartData = newChartData;
-    },
     SetFontSize(){
       if(window.innerWidth <= 600){
         return 14;
       }else{
         return 25;
+      }
+    },
+    SetLabel(){
+      return this.label.split(',');
+    },
+    SetValue(){
+      return this.value.split(',');
     }
-  },
   }
 };
 </script>
@@ -142,4 +116,3 @@ export default {
   margin-top: 60px;
 }
 </style>
-

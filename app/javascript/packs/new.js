@@ -25,14 +25,6 @@ var vm = new Vue({
 });
 
 
-
-var vm1 = new Vue({
-  el: "#hoge",
-  data:vm,
-});
-
-
-
 new Vue({
   el: "#app",
   data:vm,
