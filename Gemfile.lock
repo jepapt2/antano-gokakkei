@@ -98,6 +98,8 @@ GEM
       hpricot
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    impressionist (1.6.1)
+      nokogiri (~> 1)
     io-like (0.3.1)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -252,6 +254,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   foreman
   html2slim
+  impressionist (~> 1.6.1)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

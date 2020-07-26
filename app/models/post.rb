@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   acts_as_taggable
   generate_public_uid
+  is_impressionable
   
   validates :title, presence: true, length: { maximum: 20 }
   validates :name, length:{ maximum: 20 }

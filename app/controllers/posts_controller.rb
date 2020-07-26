@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  impressionist :actions=> [:show]
+  
   def show
     @post = Post.find_by(public_uid: params[:id])
-    @tag = Post.tag_counts
+    impressionist(@post, nil)
   end
 
   def new
