@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @post = Post.find_by(public_uid: params[:id])
     impressionist(@post, nil)
   end
+  
+  def latest
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(2)
+  end
 
   def new
     @post = Post.new

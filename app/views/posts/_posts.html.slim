@@ -1,0 +1,11 @@
+#App
+  .row
+    - posts.each do |post|
+      .col.s12.m6
+        = link_to post_path(post.public_uid) do
+          .card
+            App title="#{post.title}" value="#{post.value1},#{post.value2},#{post.value3},#{post.value4},#{post.value5}" color="#{post.bgcolor}"
+    .col.s12.center-align
+      = paginate posts
+= javascript_pack_tag 'posts'
+= javascript_pack_tag 'load'
