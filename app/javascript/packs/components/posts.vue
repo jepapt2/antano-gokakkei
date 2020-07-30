@@ -40,25 +40,35 @@ export default {
       },
       this.options = {
         title: {
-          display: true,
+          display: false,
           text: this.title,
-          fontSize: 50
+          fontSize: 35
         },
         scale:{
-          pointLabels: {       
+          pointLabels: {
             fontSize: this.SetFontSize(),    
             fontColor: ["black", "black", "black", "black", "black"]   
           },
           ticks:{
+            display: false,
+            showLabelBackdrop: false,
             suggestedMin: 0,
             suggestedMax: 5,
             min: 0,
-            max:5,
+            max: 5,
             stepSize: 1,
             callback: function(value, index, values){
               return  value;
             }
           },
+          gridLines: {
+            color:'RGBA(0, 0, 0, 1)',
+            lineWidth: 0.3
+          },
+          angleLines:{
+            color:'RGBA(0, 0, 0, 1)',
+            lineWidth: 0.3
+          }
         },
         legend: {
             display: false

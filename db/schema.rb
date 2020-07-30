@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_044614) do
+ActiveRecord::Schema.define(version: 2020_07_29_080602) do
 
   create_table "impressions", force: :cascade do |t|
     t.string "impressionable_type"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_044614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "public_uid"
+    t.integer "impressions_count", default: 0
     t.index ["public_uid"], name: "index_posts_on_public_uid", unique: true
   end
 

@@ -4,10 +4,15 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(public_uid: params[:id])
     impressionist(@post, nil)
+    @page_views = @post.impressionist_count
   end
   
   def latest
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(2)
+    @posts = Post.all.order(created_at: 'DESC').page(params[:page]).per(2)
+  end
+  
+  def view
+    @posts = Post.order(impressions_count: 'DESC').page(params[:page]).per(2)
   end
 
   def new

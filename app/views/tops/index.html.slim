@@ -1,6 +1,17 @@
-h1 Tops#index
-p Find me in app/views/tops/index.html.slim
-div#example 
-  chart
-= javascript_pack_tag 'hello_vue'
-= javascript_pack_tag 'top'
+.row
+  .container
+    .col.s12.m10.offset-m1.center-align
+      h1 あんたの五角形
+      #App
+        h3.grey.lighten-5 人気
+        == render 'top_posts', posts: @posts_view
+        h3 最新
+        == render 'top_posts', posts: @posts_latest
+      - @tags.each do |tag|
+          span.badge.teal.accent-4.white-text#tag = tag
+= javascript_pack_tag 'posts'
+= javascript_pack_tag 'load'
+
+sass:
+  #tag
+    float: none
