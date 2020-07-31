@@ -10,12 +10,8 @@
         h4 説明
         p = @post.overview
         h4 タグ
-        - @post.tag_list.each do |tag|
-          span.badge.teal.accent-4.white-text#tag = tag
-        =  @post.impressionist_count
+        == render 'tag_list', tags:@post.tag_list
 = javascript_pack_tag 'load'
 = javascript_pack_tag 'show'
-sass:
-  #tag
-    float: none
+
   

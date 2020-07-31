@@ -3,8 +3,11 @@
     - posts.each do |post|
       .col.s12.m6
         = link_to post_path(post.public_uid) do
-          .card
-            App title="#{post.title}" value="#{post.value1},#{post.value2},#{post.value3},#{post.value4},#{post.value5}" color="#{post.bgcolor}"
+          .card.grey.lighten-5.z-depth-2
+            span.card-title#title
+              h3.grey-text.text-darken-4(style="padding-top: 10px") = post.title
+            .card-action
+              App value="#{post.value1},#{post.value2},#{post.value3},#{post.value4},#{post.value5}" color="#{post.bgcolor}"
     .col.s12.center-align
       = paginate posts
 = javascript_pack_tag 'posts'

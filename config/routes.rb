@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   # get 'new', to: 'posts#new'
   get 'sort/latest', to:'posts#latest'
   get 'sort/view', to:'posts#view'
+  get 'tags', to:'posts#tags'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

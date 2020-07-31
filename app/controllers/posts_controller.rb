@@ -14,6 +14,12 @@ class PostsController < ApplicationController
   def view
     @posts = Post.order(impressions_count: 'DESC').page(params[:page]).per(2)
   end
+  
+  def tags
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(2)
+    end
+  end
 
   def new
     @post = Post.new

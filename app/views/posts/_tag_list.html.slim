@@ -1,0 +1,7 @@
+- tags.each do |tag|
+  span.badge.teal.accent-4
+    = link_to tag, tags_path(tag_name: tag), class: "white-text"
+    
+sass:
+  span.badge
+    float: none
