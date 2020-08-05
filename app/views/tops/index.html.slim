@@ -3,9 +3,12 @@
     .col.s12.m10.offset-m1.center-align
       h1 あんたの五角形
       #App
-        h3.grey.lighten-5 人気
+        i.material-icons.medium.red-text.darken-4 favorite
+        h3.inline 人気
         == render 'top_posts', posts: @posts_view
-        h3 最新
+        i.material-icons.medium.amber-text.darken-4 fiber_new
+        h3.inline 最新
+          
         == render 'top_posts', posts: @posts_latest
       - @tags.each do |tag|
           span.badge.teal.accent-4.white-text#tag = tag
@@ -15,3 +18,6 @@
 sass:
   #tag
     float: none
+  .inline
+    display: inline
+    vertical-align: 30%

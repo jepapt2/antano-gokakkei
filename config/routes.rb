@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # get 'post/:id', to: 'posts#show'
   # post 'posts/create'
   # get 'new', to: 'posts#new'
-  get 'sort/latest', to:'posts#latest'
-  get 'sort/view', to:'posts#view'
+  get 'latest', to:'posts#latest'
+  get 'view', to:'posts#view'
   get 'tags', to:'posts#tags'
+  get 'search', to:'posts#search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -20,6 +20,10 @@ class PostsController < ApplicationController
       @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(2)
     end
   end
+  
+  def search
+    # @posts = @q.result(distinct: true).page(params[:page]).per(2)
+  end
 
   def new
     @post = Post.new
@@ -37,6 +41,10 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :name, :overview, :label1, :label2, :label3, :label4, :label5, :value1, :value2, :value3, :value4, :value5, :bgcolor, :tag_list)
+  end
+  
+  def search_params
+    params.require(:q).permit!
   end
 end
 

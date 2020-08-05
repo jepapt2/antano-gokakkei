@@ -6,7 +6,6 @@ Vue.use(VueDataScooper);
 
 Vue.config.productionTip = false;
 
-document.addEventListener("DOMContentLoaded", () => {
 var vm = new Vue({
   el: "#form",
   data:{
@@ -30,8 +29,6 @@ new Vue({
   data:vm,
   components: { App },
   template: '<App :title="title" :value="value" :label="label" :color="color"></App>'
-});
-
 });
 
 
