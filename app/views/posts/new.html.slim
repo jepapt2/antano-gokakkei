@@ -95,6 +95,7 @@
             .input-field 
               = f.label :tag_list, "(任意)"
               = f.text_area :tag_list, class: "materialize-textarea"
+              small.left-align 半角コンマで区切って入力（例：ゲーム,アニメ,キャラクター）
           div
             = f.submit '投稿', class: "btn-large"
             

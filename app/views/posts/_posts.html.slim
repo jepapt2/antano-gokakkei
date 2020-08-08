@@ -1,13 +1,15 @@
 #App
   .row
     - posts.each do |post|
-      .col.s12.m6
-        = link_to post_path(post.public_uid) do
-          .card.grey.lighten-5.z-depth-2
+      .col.s6
+        .card.grey.lighten-5.z-depth-2
+          = link_to post_path(post.public_uid) do
             span.card-title#title
-              h3.grey-text.text-darken-4(style="padding-top: 10px") = post.title
-            .card-action
+              h4.grey-text.text-darken-4(style="padding-top: 10px") = post.title
+            .card-image
               App value="#{post.value1},#{post.value2},#{post.value3},#{post.value4},#{post.value5}" color="#{post.bgcolor}"
+          .card-action(style="padding: 5px 2px;")
+            == render './posts/tag_list_3', tags: post.tag_list
     .col.s12.center-align
       = paginate posts
 = javascript_pack_tag 'posts'

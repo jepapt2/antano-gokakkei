@@ -1,5 +1,5 @@
 .row
   .container.center-align
+    h4 #{params[:tag_name]}で絞り込み
     .col.s12.m10.offset-m1
-      h2 #{params[:tag_name]}で絞り込み
       == render 'posts', posts: @posts

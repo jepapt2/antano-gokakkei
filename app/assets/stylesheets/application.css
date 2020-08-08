@@ -16,16 +16,15 @@
  *= require_tree .
  *= require_self
  */
- 
-span.badge.teal.accent-4.tag{
- float: none;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+*{
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-.card>.card-action.post-tag a{
- margin-right: 0;
- display: inline-block;
+span.badge.teal.accent-4.tag {
+  float: none; 
 }
 
-.card>.card-action.post-tag{
- padding: 10px 5px;
-}
+/*# sourceMappingURL=application.css.map */

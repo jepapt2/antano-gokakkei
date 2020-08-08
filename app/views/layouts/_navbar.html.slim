@@ -1,4 +1,4 @@
-nav.teal.lighten-3
+nav.teal.lighten-2
   .nav-wrapper
     = link_to 'Logo', root_path, class: 'brand-logo'
     a href="#" data-target="mobile-demo" class="sidenav-trigger" 
@@ -13,25 +13,22 @@ nav.teal.lighten-3
       li
         = link_to new_post_path do
           b 　投稿　
-        
     span#nav-search class="right hide-on-med-and-down" 
       = search_form_for @q, url: search_path, method: :get do |f|
-        = f.search_field :title_cont, id:'search-field'
-        = f.submit '検索' , id:'submit', class:'btn'
+        = f.search_field :title_or_tags_name_cont, id:'search-field'
+        = f.submit '検索' , id:'submit', class:'btn teal darken-3'
 
 ul class="sidenav" id="mobile-demo"
   li 
-    a href="sass.html" Sass
+    = link_to '新着', latest_path
   li 
-    a href="badges.html" Components
+    = link_to '人気', view_path 
   li 
-    a href="collapsible.html" Javascript
-  li 
-    a href="mobile.html" Mobile
+    = link_to '投稿', new_post_path
   li
-    span.input-field
+    span.input-fieldcd
       = search_form_for @q, url: search_path, method: :get do |f|
-        = f.search_field :title_cont, id:"side-search", placeholder:"検索ワードを入力"
+        = f.search_field :title_or_tags_name_cont, id:"side-search", placeholder:"検索ワードを入力"
         = f.submit '検索' , id:'side-submit', class:'btn'
               
 = javascript_pack_tag 'navbar'
@@ -49,7 +46,9 @@ sass:
     position: relative
     left: 30px
   #search-field
-    border-bottom: 1px solid gray
+    border-bottom: 1.5px solid black
+  #search-field:focus
+    background-color: white 
   #side-search
     margin-left: 30px
   nav

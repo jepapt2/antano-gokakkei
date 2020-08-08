@@ -93,7 +93,7 @@ export default {
       if(window.innerWidth <= 600){
         return 14;
       }else{
-        return 25;
+        return 20;
       }
     },
     SetLabel(){

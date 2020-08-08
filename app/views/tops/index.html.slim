@@ -3,21 +3,19 @@
     .col.s12.m10.offset-m1.center-align
       h1 あんたの五角形
       #App
-        i.material-icons.medium.red-text.darken-4 favorite
-        h3.inline 人気
+        h3 <i class="material-icons medium red-text darken-4">favorite</i> 
+          <span>人気</span>
         == render 'top_posts', posts: @posts_view
-        i.material-icons.medium.amber-text.darken-4 fiber_new
-        h3.inline 最新
-          
+        h3 <i class="material-icons medium amber-text darken-4">fiber_new</i> 
+          <span>新着</span>  
         == render 'top_posts', posts: @posts_latest
       - @tags.each do |tag|
-          span.badge.teal.accent-4.white-text#tag = tag
+          span.badge.teal.accent-4.white-text.tag = tag
 = javascript_pack_tag 'posts'
 = javascript_pack_tag 'load'
 
 sass:
-  #tag
+  .tag
     float: none
-  .inline
-    display: inline
-    vertical-align: 30%
+  h3 span
+    vertical-align: 20%

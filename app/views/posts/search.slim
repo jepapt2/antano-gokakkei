@@ -1,5 +1,7 @@
 .row
   .container.center-align
-    h2 新着順
+    h4 検索結果：#{params[:q][:title_or_tags_name_cont]}（#{@search_posts.count}件）
     .col.s12.m10.offset-m1
+      - if @search_posts.blank?
+        h5.grey.lighten-2 検索結果はありません
       == render 'posts', posts: @search_posts

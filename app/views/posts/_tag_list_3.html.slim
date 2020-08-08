@@ -1,4 +1,4 @@
 span.tags
-  - tags.each do |tag|
+  - tags.first(3).each do |tag|
     span.badge.teal.accent-4.tag
       = link_to tag, tags_path(tag_name: tag), class: "white-text", :style => "margin-right: 0;"
