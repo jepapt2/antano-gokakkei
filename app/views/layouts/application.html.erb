@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% title = 'a' %>
-    <title><%= title %>Gokakkeeei</title>
+    <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="twitter:card" content="summary" />
-    <meta property="og:url" content="<%= request.url %>" />
-    <meta property="og:title" content="あんたの五角形" />
-    <meta property="og:image" content="画像のURL" /> 
-    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application_style' %>
     <%= javascript_pack_tag 'application_style' %>
-    
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
     <%= yield %>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
 </html>

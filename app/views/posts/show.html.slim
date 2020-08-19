@@ -1,10 +1,9 @@
-- title = @post.title
+- set_meta_tags title: @post.title
 .row
   .container
     .col.s12.m8.offset-m2
       #App
         App title="#{@post.title}" label="#{@post.label1},#{@post.label2},#{@post.label3},#{@post.label4},#{@post.label5}" value="#{@post.value1},#{@post.value2},#{@post.value3},#{@post.value4},#{@post.value5}" color="#{@post.bgcolor}"
-        p v-text="title"
       .center-align
         <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
         h5 投稿者

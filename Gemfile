@@ -90,3 +90,5 @@ gem 'public_uid'
 gem 'impressionist', '~>1.6.1'
 
 gem 'ransack'
+
+gem 'meta-tags'
