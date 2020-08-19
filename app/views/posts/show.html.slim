@@ -1,3 +1,4 @@
+- title = @post.title
 .row
   .container
     .col.s12.m8.offset-m2
@@ -5,11 +6,12 @@
         App title="#{@post.title}" label="#{@post.label1},#{@post.label2},#{@post.label3},#{@post.label4},#{@post.label5}" value="#{@post.value1},#{@post.value2},#{@post.value3},#{@post.value4},#{@post.value5}" color="#{@post.bgcolor}"
         p v-text="title"
       .center-align
-        h4 投稿者
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
+        h5 投稿者
         p = @post.name
-        h4 説明
+        h5 説明
         p = @post.overview
-        h4 タグ
+        h5 タグ
         == render 'tag_list', tags:@post.tag_list
 = javascript_pack_tag 'load'
 = javascript_pack_tag 'show'

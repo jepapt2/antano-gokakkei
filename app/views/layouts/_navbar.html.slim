@@ -1,6 +1,6 @@
 nav.teal.lighten-2
   .nav-wrapper
-    = link_to 'Logo', root_path, class: 'brand-logo'
+    = link_to image_tag('gokakkei_white.png'), root_path, id:'logo', class: 'brand-logo'
     a href="#" data-target="mobile-demo" class="sidenav-trigger" 
       i.material-icons menu
     ul id="nav-mobile" class="left hide-on-med-and-down"
@@ -33,9 +33,13 @@ ul class="sidenav" id="mobile-demo"
               
 = javascript_pack_tag 'navbar'
 sass:
+  #logo
+    margin-top: 5px
+    margin-left: 5px
   #nav-search
     display: inline-flex
     height: 100%
+    width: 230px
     margin-right: 70px
   #submit
     float: right
@@ -52,8 +56,8 @@ sass:
   #side-search
     margin-left: 30px
   nav
-    margin-bottom: 50px
+    margin-bottom: 30px
   nav b
     font-size: 1.5rem
   #nav-mobile
-    margin-left: 100px
+    margin-left: 320px

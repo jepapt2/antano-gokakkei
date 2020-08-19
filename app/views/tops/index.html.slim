@@ -1,16 +1,27 @@
 .row
   .container
     .col.s12.m10.offset-m1.center-align
-      h1 あんたの五角形
+      = image_tag 'gokakkei_black.png'
+      p あなたの好きなものを五角形グラフにしよう！
       #App
         h3 <i class="material-icons medium red-text darken-4">favorite</i> 
           <span>人気</span>
         == render 'top_posts', posts: @posts_view
-        h3 <i class="material-icons medium amber-text darken-4">fiber_new</i> 
+        h3 <i class="material-icons medium amber-text darken-4">fiber_new</i>
           <span>新着</span>  
         == render 'top_posts', posts: @posts_latest
-      - @tags.each do |tag|
-          span.badge.teal.accent-4.white-text.tag = tag
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
+      h3 <i class="material-icons medium blue-text">create</i> 
+          <span>五角形を作る</span>
+      p 登録不要ですぐ作成！
+      = link_to '作成する', new_post_path, class:'waves-effect waves-light btn-large'
+      h3 <i class="material-icons medium teal-text accent-4">local_offer</i> 
+          <span>タグ一覧</span>
+      span.tags
+        - @tags.first(50).each do |tag|
+          span.badge.teal.accent-4.tag
+            = link_to "#{tag}(#{tag.taggings_count})", tags_path(tag_name: tag.name), class: "white-text", :style => "margin-right: 0;"
+
 = javascript_pack_tag 'posts'
 = javascript_pack_tag 'load'
 
